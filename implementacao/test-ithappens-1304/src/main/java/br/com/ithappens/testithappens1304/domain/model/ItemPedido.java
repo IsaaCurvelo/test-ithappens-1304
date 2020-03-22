@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,6 +19,7 @@ import lombok.Data;
 public class ItemPedido {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne
@@ -30,12 +33,13 @@ public class ItemPedido {
 	@Column
 	private Integer quantidade;
 
-	@Column
+	@Column(name = "valor_unitario")
 	private BigDecimal valorUnitario;
 
-	@Column
+	@Column(name = "valor_total")
 	private BigDecimal valorTotal;
 
+	@Column
 	@Enumerated(EnumType.STRING)
 	private StatusItemPedido status;
 }
