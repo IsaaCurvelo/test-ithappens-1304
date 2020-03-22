@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `testithappens1304`.`item_pedido` (
   `quantidade` INT NULL,
   `valor_unitario` FLOAT NULL,
   `valor_total` FLOAT NULL,
-  `status_item` VARCHAR(45) NOT NULL
+  `status` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_item_pedido_pedido_estoque1_idx` (`pedido_estoque_id` ASC) VISIBLE,
   INDEX `fk_item_pedido_produto1_idx` (`produto_codigo` ASC) VISIBLE,
@@ -190,10 +190,10 @@ INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `q
 
 INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 12, 12);
 INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 44, 25);
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 11, 12);
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 9, 12);
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 10, 12);
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 7, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 11, 1234);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 9, 30);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 10, 555);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 7, 123);
 INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 7993, 120);
 
 INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (13, 7993, 1000);
