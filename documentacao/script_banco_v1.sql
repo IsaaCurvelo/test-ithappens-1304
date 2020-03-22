@@ -154,23 +154,49 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-
+-- -----------------------------------------------------
+-- data
+-- -----------------------------------------------------
 
 -- clientes
 INSERT INTO `testithappens1304`.`cliente` (`nome`, `email`, `telefone`, `endereco`) VALUES ('Quenildo Moreira', 'quenildo@email.com', '98982123432', 'rua dos afogados 123');
+INSERT INTO `testithappens1304`.`cliente` (`nome`, `email`, `telefone`, `endereco`) VALUES ('Pedro Paulo Picolo', 'ppp@email.com', '98991324565', 'rua 1 quadra 3 casa 2');
 
 -- usuarios
 INSERT INTO `testithappens1304`.`usuario` (`matricula`, `senha`, `nome`) VALUES ('123123', '321321', 'José Worker');
+INSERT INTO `testithappens1304`.`usuario` (`matricula`, `senha`, `nome`) VALUES ('666666', '11001111', 'Energilson Freitas');
 
 -- filiais
-INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES ('1');
-INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES ('60');
-INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES ('46');
+INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES (1);
+INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES (60);
+INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES (13);
+INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES (12);
+INSERT INTO `testithappens1304`.`filial` (`codigo`) VALUES (20);
 
 -- produtos
-INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES ('44', 'leite', '232', '789007766');
-INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES ('12', 'pão', '112', '789123311');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (44, 'leite', '232', '789007766');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (12, 'pão', '112', '789123311');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (7993, 'ovo', '000', '7896655665');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (11, 'arroz', '001', '789101010');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (10, 'feijão', '002', '789111111');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (9, 'banana', '003', '7891121212');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (8, 'iorguti', '004', '789131313');
+INSERT INTO `testithappens1304`.`produto` (`codigo`, `descricao`, `sequencial`, `codigo_barras`) VALUES (7, 'languiça', '005', '789141414');
 
 -- estoques
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES ('60', '44', '12313');
-INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES ('1', '12', '12');
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (60, 44, 12313);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (60, 7993, 0);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (60, 10, 10);
+
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 12, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 44, 25);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 11, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 9, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 10, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 7, 12);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (1, 7993, 120);
+
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (13, 7993, 1000);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (13, 10, 500);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (13, 7993, 120);
+INSERT INTO `testithappens1304`.`estoque` (`filial_codigo`, `produto_codigo`, `quantidade`) VALUES (13, 7993, 120);
