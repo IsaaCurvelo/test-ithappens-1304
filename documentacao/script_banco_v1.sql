@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `testithappens1304`.`estoque` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `filial_codigo` INT NOT NULL,
   `produto_codigo` INT NOT NULL,
-  `quantidade` INT NULL,
+  `quantidade` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_estoque_filial_idx` (`filial_codigo` ASC) VISIBLE,
   INDEX `fk_estoque_produto1_idx` (`produto_codigo` ASC) VISIBLE,
