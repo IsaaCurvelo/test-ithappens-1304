@@ -2,8 +2,6 @@ package br.com.ithappens.testithappens1304.api.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,13 +22,13 @@ public class PedidoEstoqueResource {
 		return ResponseEntity.ok(this.pedidoEstoqueService.criarPedidoEstoque(pedidoEstoque));
 	}
 
-	@DeleteMapping("/{id}")
-	public ResponseEntity<Void> removerPedidoEstoque(@PathVariable Integer id) {
-		try {
-			this.pedidoEstoqueService.removerPedidoEstoque(id);
-			return ResponseEntity.noContent().build();
-		} catch (Exception e) {
-			return ResponseEntity.notFound().build();
-		}
-	}
+//	@DeleteMapping("/{id}")
+//	public ResponseEntity<Void> removerPedidoEstoque(@PathVariable Integer id) {
+//		try {
+//			this.pedidoEstoqueService.removerPedidoEstoque(id);
+//			return ResponseEntity.noContent().build();
+//		} catch (Exception e) {
+//			return ResponseEntity.notFound().build();
+//		}
+//	}
 }
