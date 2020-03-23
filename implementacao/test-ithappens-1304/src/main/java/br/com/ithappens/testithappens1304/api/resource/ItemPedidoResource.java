@@ -1,9 +1,6 @@
 package br.com.ithappens.testithappens1304.api.resource;
 
-import java.util.List;
-
 import javax.validation.Valid;
-import javax.validation.constraints.NotEmpty;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,10 +27,10 @@ public class ItemPedidoResource {
 		return ResponseEntity.ok(itemPedido);
 	}
 
-	@PostMapping("/inserir-lote")
-	public ResponseEntity<List<ItemPedido>> inserirItemPedido(@RequestBody @NotEmpty(
-			message = "a lista de itens de pedido não pode ser vazia") List<@Valid ItemPedido> itemPedidos) {
-		return ResponseEntity.ok(this.itemPedidoService.inserirItemPedido(itemPedidos));
-	}
+//	@PostMapping("/inserir-lote")
+//	public ResponseEntity<List<ItemPedido>> inserirItemPedido(@RequestBody @NotEmpty(
+//			message = "a lista de itens de pedido não pode ser vazia") List<@Valid ItemPedido> itemPedidos) {
+//		return ResponseEntity.ok(this.itemPedidoService.inserirItemPedido(itemPedidos));
+//	}
 
 }

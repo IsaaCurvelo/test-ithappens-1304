@@ -24,30 +24,25 @@ public class ItemPedidoService {
 	@Autowired
 	private PedidoEstoqueRepository pedidoEstoqueRepository;
 
-	public ItemPedido inserirItemPedido(ItemPedido itemPedido) {
-		itemPedido.setPedidoEstoque(this.pedidoEstoqueRepository.findById(itemPedido.getPedidoEstoque().getId()).get());
-
+	public ItemPedido inserirItemPedido(ItemPedido itemPedido) throws IllegalArgumentException{
+		itemPedido.setPedidoEstoque(this.pedidoEstoqueRepository.findById(
+				itemPedido.getPedidoEstoque().getId()).get());
+		
+		List<ItemPedido> itensPedidoEstoque = 
+				this.itemPedidoRepository.findByPedidoEstoque(itemPedido.getPedidoEstoque());
+		
+		if (itensPedidoEstoque.stream()
+				.anyMatch(x -> x.getProduto().getCodigo()
+						.equals(itemPedido.getProduto().getCodigo()))) {
+			throw new IllegalArgumentException("produto já cadastrado neste pedido de estoque");
+		}
+		
 		if (itemPedido.getPedidoEstoque().isEntrada()) {
 			return this.inserirItemPedidoEntrada(itemPedido);
 		}
 
-		//TODO: implementar a inserção de pedidos de saída
-		return null;
-	}
-
-	public List<ItemPedido> inserirItemPedido(List<ItemPedido> itemPedidos) {
-		for (ItemPedido itemPedido : itemPedidos) {
-			itemPedido.setPedidoEstoque(
-					this.pedidoEstoqueRepository.findById(itemPedido.getPedidoEstoque().getId()).get());
-
-			if (itemPedido.getPedidoEstoque().isEntrada()) {
-				itemPedido = this.inserirItemPedidoEntrada(itemPedido);
-			} else {
-				//
-			}
-		}
-
-		return itemPedidos;
+		
+		return this.inserirItemPedidoSaida(itemPedido);
 	}
 
 	private ItemPedido inserirItemPedidoEntrada(ItemPedido itemPedido) {
@@ -55,9 +50,18 @@ public class ItemPedidoService {
 				itemPedido.getQuantidade());
 		return this.itemPedidoRepository.save(itemPedido);
 	}
-
-	private ItemPedido alterarStatusItemPedido(ItemPedido itemPedido, StatusItemPedido status) {
-		return null;
+	
+	private ItemPedido inserirItemPedidoSaida(ItemPedido itemPedido) {
+		
+		itemPedido.setStatus(StatusItemPedido.ATIVO);
+		
+		this.estoqueService.saidaEstoque();
+	
+		return this.itemPedidoRepository.save(itemPedido);
 	}
+
+//	private ItemPedido alterarStatusItemPedido(ItemPedido itemPedido, StatusItemPedido status) {
+//		return null;
+//	}
 
 }

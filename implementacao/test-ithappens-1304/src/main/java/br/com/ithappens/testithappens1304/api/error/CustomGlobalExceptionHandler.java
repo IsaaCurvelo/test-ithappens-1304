@@ -26,6 +26,11 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 	public void constraintViolationException(HttpServletResponse response) throws IOException {
 		response.sendError(HttpStatus.BAD_REQUEST.value());
 	}
+	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public void illegalArgumentException(HttpServletResponse response) throws IOException {
+		response.sendError(HttpStatus.BAD_REQUEST.value());
+	}
 
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,

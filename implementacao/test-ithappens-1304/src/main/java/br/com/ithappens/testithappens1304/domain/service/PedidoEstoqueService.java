@@ -15,20 +15,9 @@ public class PedidoEstoqueService {
 	private PedidoEstoqueRepository pedidoEstoqueRepository;
 
 	public PedidoEstoque criarPedidoEstoque(PedidoEstoque pedidoEstoque) {
-		if (pedidoEstoque.isEntrada()) {
-			return this.criarPedidoEstoqueEntrada(pedidoEstoque);
-		}
-		return this.criarPedidoEstoqueSaida(pedidoEstoque);
+		return this.pedidoEstoqueRepository.save(pedidoEstoque);
 	}
 
-	public PedidoEstoque criarPedidoEstoqueEntrada(PedidoEstoque pedidoEstoque) {
-		this.pedidoEstoqueRepository.save(pedidoEstoque);
-		return pedidoEstoque;
-	}
-
-	public PedidoEstoque criarPedidoEstoqueSaida(PedidoEstoque pedidoEstoque) {
-		return null;
-	}
 
 	public void removerPedidoEstoque(Integer id) throws IllegalArgumentException {
 		Optional<PedidoEstoque> optionalPedidoEstoque = this.pedidoEstoqueRepository.findById(id);
