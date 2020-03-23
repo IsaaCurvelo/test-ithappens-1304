@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `testithappens1304`.`pedido_estoque` (
   `filial_codigo` INT NOT NULL,
   `observacao` VARCHAR(45) NULL,
   `valor` VARCHAR(45),
-  `forma_pagamento` VARCHAR(45) NOT NULL,
+  `forma_pagamento` VARCHAR(45) NULL,
   `entrada` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_pedido_estoque_cliente1_idx` (`cliente_id` ASC) VISIBLE,

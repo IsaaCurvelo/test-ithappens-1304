@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -24,13 +26,17 @@ public class ItemPedido {
 
 	@ManyToOne
 	@JoinColumn(name = "pedido_estoque_id")
+	@NotNull(message = "o campo pedidoEstoque é obrigatório")
 	private PedidoEstoque pedidoEstoque;
 
 	@ManyToOne
 	@JoinColumn(name = "produto_codigo")
+	@NotNull(message = "o campo produto é obrigatório")
 	private Produto produto;
 
 	@Column
+	@NotNull(message = "o campo quantidade é obrigatório")
+	@Min(value = 1l, message = "o campo quantidade precisa ser maior que 0")
 	private Integer quantidade;
 
 	@Column(name = "valor_unitario")

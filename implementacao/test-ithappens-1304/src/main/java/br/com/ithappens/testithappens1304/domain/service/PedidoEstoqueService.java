@@ -3,12 +3,12 @@ package br.com.ithappens.testithappens1304.domain.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.ithappens.testithappens1304.domain.model.PedidoEstoque;
 import br.com.ithappens.testithappens1304.domain.repository.PedidoEstoqueRepository;
 
-@Component
+@Service
 public class PedidoEstoqueService {
 
 	@Autowired

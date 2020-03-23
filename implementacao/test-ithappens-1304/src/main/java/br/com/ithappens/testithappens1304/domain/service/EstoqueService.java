@@ -3,14 +3,14 @@ package br.com.ithappens.testithappens1304.domain.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.ithappens.testithappens1304.domain.model.Estoque;
 import br.com.ithappens.testithappens1304.domain.model.Filial;
 import br.com.ithappens.testithappens1304.domain.model.Produto;
 import br.com.ithappens.testithappens1304.domain.repository.EstoqueRepository;
 
-@Component
+@Service
 public class EstoqueService {
 
 	@Autowired
