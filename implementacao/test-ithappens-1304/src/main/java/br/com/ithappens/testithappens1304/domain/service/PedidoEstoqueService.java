@@ -1,5 +1,6 @@
 package br.com.ithappens.testithappens1304.domain.service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class PedidoEstoqueService {
 	private PedidoEstoqueRepository pedidoEstoqueRepository;
 
 	public PedidoEstoque criarPedidoEstoque(PedidoEstoque pedidoEstoque) {
+		pedidoEstoque.setQuantidadeItens(0);
+		pedidoEstoque.setValor(BigDecimal.ZERO);
 		return this.pedidoEstoqueRepository.save(pedidoEstoque);
 	}
 

@@ -34,5 +34,22 @@ public class EstoqueService {
 
 		this.estoqueRepository.save(estoque);
 	}
+	
+	public void saidaEstoque(Produto produto, Filial filial, Integer produtoQuantidade) 
+			throws IllegalArgumentException {
+		Estoque estoque;
+		Optional<Estoque> optionalEstoque = this.estoqueRepository.buscarPorProdutoeFilial(produto, filial);
+		if (optionalEstoque.isPresent()) {
+			estoque = optionalEstoque.get();
+			if (estoque.getQuantidade() >= produtoQuantidade) {
+				estoque.setQuantidade(estoque.getQuantidade() - produtoQuantidade);
+				estoqueRepository.save(estoque);
+				return;
+			}
+		}
+		
+		throw new IllegalArgumentException("não há estoque suficiente do produto "
+				+ "para o item de pedido de estoque");
+	}
 
 }

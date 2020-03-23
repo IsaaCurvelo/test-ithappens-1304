@@ -46,5 +46,7 @@ public class PedidoEstoque {
 
 	@Column
 	private BigDecimal valor;
-
+	
+	@Column(name = "quantidade_itens")
+	private Integer quantidadeItens;
 }
